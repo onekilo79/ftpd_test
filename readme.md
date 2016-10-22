@@ -27,7 +27,7 @@ E.G. from Stillard's instructions:
 docker run -d --name ftpd_server -p 21:21 -p 30000-30009:30000-30009 -e "PUBLICHOST=localhost" stilliard/pure-ftpd:hardened
 ```
 
-Where **-e "PUBLICHOST=localhost"** has to be changed each and every time to run as localhsot
+Where **-e "PUBLICHOST=localhost"** has to be changed each and every time to run as localhost
 
 
 This version the server will run up expecting itself to be localhost and repsect commands to/from localhost so you can use this locally.
