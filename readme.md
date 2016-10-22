@@ -5,9 +5,9 @@ A simple Docker image with a predefined test user, based on a simple extension o
 This also uses ideas from [Chris Pitt's pure ftp image](https://github.com/thirstybear/ftpd_test)
 
 # Purpose
-This is a local developers image to stub out using a ftp server for development in isolation.
+This is a local developers image to use a ftp server for development and testing in isolation.
 
-It is not a good idea to run this image as infrastructure. 
+It is not a intended to run this image as infrastructure. 
 
 # Changes to the original image
 
@@ -18,7 +18,17 @@ It is not a good idea to run this image as infrastructure.
 
 The image from stillard would start up a server with a public host of ftp.foo.com by default. This means it thinks its own public address is ftp.foo.com.  
 
-When your run stillards image you have to remember to override the value every time you create the contaienr else it will never work locally as localhost.
+When your run stillards image you have to remember to override the value PUBLICHOST every time you create the contaienr else it will never work locally as localhost.
+
+
+E.G. from Stillard's instructions:
+
+```
+docker run -d --name ftpd_server -p 21:21 -p 30000-30009:30000-30009 -e "PUBLICHOST=localhost" stilliard/pure-ftpd:hardened
+```
+
+Where **-e "PUBLICHOST=localhost"** has to be changed each and every time to run as localhsot
+
 
 This version the server will run up expecting itself to be localhost and repsect commands to/from localhost so you can use this locally.
 
@@ -98,9 +108,9 @@ Creating a file under **/tmp/ftp/ftpusers/test/** will allow you to see it when 
 ```
 
 
-# Test the connection
+# Test the ftp connection
 
-You can log into the server via
+You can log into the server via:
 
 ```
 	ftp ftp://test:test@localhost
