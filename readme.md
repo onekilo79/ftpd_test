@@ -16,9 +16,9 @@ It is not a intended to run this image as infrastructure.
 
 ## Publichost explained
 
-The image from stillard would start up a server with a public host of ftp.foo.com by default. This means it thinks its own public address is ftp.foo.com.  
+The image from stillard would start up a server with a public host of **ftp.foo.com** by default. This means it thinks its own public address is **ftp.foo.com**.  
 
-When your run stillards image you have to remember to override the value PUBLICHOST every time you create the contaienr else it will never work locally as localhost.
+When your run stillards image you have to remember to override the value **PUBLICHOST** every time you create the container else it will never work locally as **localhost**.
 
 
 E.G. from Stillard's instructions:
@@ -27,10 +27,10 @@ E.G. from Stillard's instructions:
 docker run -d --name ftpd_server -p 21:21 -p 30000-30009:30000-30009 -e "PUBLICHOST=localhost" stilliard/pure-ftpd:hardened
 ```
 
-Where **-e "PUBLICHOST=localhost"** has to be changed each and every time to run as localhost
+Where **-e "PUBLICHOST=localhost"** has to be changed each and every time to run as **localhost**
 
 
-This version the server will run up expecting itself to be localhost and repsect commands to/from localhost so you can use this locally.
+This version the server will run up expecting itself to be **localhost** and repsect commands to/from **localhost** so you can use this locally.
 
 # Usage
 
